@@ -1,15 +1,14 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/CartContext';
 
 const CartOverlay = () => {
-    const [isCartOpen, setIsCartOpen] = useState(true);
+    const {isCartOpen, setIsCartOpen} = useContext(CartContext);
 
     return (
         <>
             <div
                 className={`z-50 h-screen w-screen fixed top-0 left-0  transition duration-600 ${
-                    isCartOpen
-                        ? 'pointer-events-auto'
-                        : 'pointer-events-none'
+                    isCartOpen ? 'pointer-events-auto' : 'pointer-events-none'
                 }`}
             >
                 <section
