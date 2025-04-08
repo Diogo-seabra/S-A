@@ -18,9 +18,13 @@ function App() {
         setCartItems(updatedCart);
     };
 
+    const toggleIsCartOpen = () => {
+        setIsCartOpen(!isCartOpen);
+    };
+
     return (
         <CartContext.Provider
-            value={{ isCartOpen, setIsCartOpen, cartItems, addToCart }}
+            value={{ isCartOpen, toggleIsCartOpen, cartItems, addToCart }}
         >
             <Header />
             <Routes>
