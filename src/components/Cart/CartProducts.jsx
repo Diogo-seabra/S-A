@@ -10,7 +10,7 @@ const CartProducts = () => {
     }
 
     return (
-        <section className='flex flex-col justify-start gap-2 overflow-y-auto scrollbar-hide'>
+        <section className='flex flex-col justify-start gap-2 h-3/5 overflow-y-auto scrollbar-hide'>
             {cartItemsArray.map((product) => {
                 return <CartItem {...product} key={`key_${product.id}`}/>
             })}
