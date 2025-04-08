@@ -1,3 +1,3 @@
 const PurchaseHistory = () => {};
 
-export default PurchaseHistory
+export default PurchaseHistory;
