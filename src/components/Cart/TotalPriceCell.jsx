@@ -17,7 +17,7 @@ const TotalPriceCell = () => {
     return (
         <section className='flex bg-slate-100 p-1 text-green-700 rounded-md justify-evenly '>
             <p>Total: </p>
-            <p>{`$${totalPrice}`}</p>
+            <p>{`R$${totalPrice}`}</p>
         </section>
     );
 };
