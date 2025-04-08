@@ -53,7 +53,13 @@ const CartOverlay = () => {
                         </button>
                     </div>
                     <CartProducts />
-                    <Link to='/checkout' className='bg-slate-100 text-slate-950 rounded-sm p-1 hover:bg-slate-300 text-center'>Finalizar Compra</Link>
+                    <TotalPriceCell />
+                    <Link
+                        to='/checkout'
+                        className='bg-slate-100 text-slate-950 rounded-sm p-1 hover:bg-slate-300 text-center'
+                    >
+                        Finalizar Compra
+                    </Link>
                 </section>
             </div>
         </>
