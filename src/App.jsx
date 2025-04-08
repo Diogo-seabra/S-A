@@ -18,13 +18,21 @@ function App() {
         setCartItems(updatedCart);
     };
 
+    const decreaseUnit = (productId) => {
+        const updatedCart = {
+            ...cartItems,
+            [productId]: (cartItems[productId] ?? 0) - 1,
+        };
+        setCartItems(updatedCart);
+    };
+
     const toggleIsCartOpen = () => {
         setIsCartOpen(!isCartOpen);
     };
 
     return (
         <CartContext.Provider
-            value={{ isCartOpen, toggleIsCartOpen, cartItems, addToCart }}
+            value={{ isCartOpen, toggleIsCartOpen, cartItems, addToCart, decreaseUnit }}
         >
             <Header />
             <Routes>
