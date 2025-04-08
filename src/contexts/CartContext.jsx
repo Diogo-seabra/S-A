@@ -1,7 +1,9 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { useState } from 'react';
 
-export const CartContext = createContext(null);
+const CartContext = createContext(null);
+
+export const useCartContext = () => useContext(CartContext);
 
 export const getAmountOfItemsInCart = (cartItemsObj) => {
     let amount = 0;
