@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import CartProducts from './CartProducts';
 
 const CartOverlay = () => {
     const { isCartOpen, toggleIsCartOpen } = useContext(CartContext);
@@ -34,6 +35,7 @@ const CartOverlay = () => {
                             <FontAwesomeIcon icon={faCircleXmark} className='text-xl'/>
                         </button>
                     </div>
+                    <CartProducts />
                 </section>
             </div>
         </>
