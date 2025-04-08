@@ -23,8 +23,8 @@ const ProductCard = ({ id, name, brand, image, feminine, price }) => {
                     </p>
                 </div>
 
-                <button onClick={() => addToCart(id)} className='bg-slate-900 rounded-md text-slate-100 hover:bg-slate-800 transition duration-300 flex items-center justify-center gap-2 py-1.5 px-4 w-full'>
-                    <FontAwesomeIcon icon={faCartPlus} />
+                <button onClick={() => addToCart(id)} className='bg-slate-900 rounded-md text-slate-100 hover:bg-slate-800 transition duration-300 flex items-center justify-center gap-2 py-1 px-4 w-full'>
+                    Adicionar<FontAwesomeIcon icon={faCartPlus} />
                 </button>
             </article>
         </>

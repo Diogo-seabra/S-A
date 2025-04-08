@@ -19,11 +19,21 @@ function App() {
     };
 
     const decreaseUnit = (productId) => {
-        const updatedCart = {
-            ...cartItems,
-            [productId]: (cartItems[productId] ?? 0) - 1,
-        };
-        setCartItems(updatedCart);
+        if (cartItems[productId] > 1) {
+            const updatedCart = {
+                ...cartItems,
+                [productId]: cartItems[productId] - 1,
+            };
+            setCartItems(updatedCart);
+        } else {
+            removeFromCart(productId);
+        }
+    };
+
+    const removeFromCart = (productId) => {
+        const cartItemsCopy = { ...cartItems };
+        delete cartItemsCopy[productId];
+        setCartItems(cartItemsCopy);
     };
 
     const toggleIsCartOpen = () => {
@@ -32,7 +42,14 @@ function App() {
 
     return (
         <CartContext.Provider
-            value={{ isCartOpen, toggleIsCartOpen, cartItems, addToCart, decreaseUnit }}
+            value={{
+                isCartOpen,
+                toggleIsCartOpen,
+                cartItems,
+                addToCart,
+                decreaseUnit,
+                removeFromCart,
+            }}
         >
             <Header />
             <Routes>

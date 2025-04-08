@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +6,18 @@ import CartProducts from './CartProducts';
 
 const CartOverlay = () => {
     const { isCartOpen, toggleIsCartOpen } = useContext(CartContext);
+
+    useEffect(() => {
+        if (isCartOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isCartOpen]);
 
     return (
         <>
@@ -29,10 +41,13 @@ const CartOverlay = () => {
                         isCartOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 >
-                    <div className='flex justify-between border-b border-slate-50 px-4 py-2'>
+                    <div className='flex justify-between border-b border-slate-400 px-4 py-2 mb-2'>
                         <p>Meu carrinho</p>
                         <button onClick={toggleIsCartOpen}>
-                            <FontAwesomeIcon icon={faCircleXmark} className='text-xl'/>
+                            <FontAwesomeIcon
+                                icon={faCircleXmark}
+                                className='text-xl'
+                            />
                         </button>
                     </div>
                     <CartProducts />
