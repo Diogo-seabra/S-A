@@ -1,4 +1,4 @@
-const ProductFilters = ({ setFemaleProducts }) => {
+const ProductFilters = ({ setSearchParams }) => {
     return (
         <section className='flex justify-center items-center py-8'>
             <input
@@ -6,7 +6,7 @@ const ProductFilters = ({ setFemaleProducts }) => {
                 type='radio'
                 name='filter-selection'
                 className='hidden'
-                onClick={() => setFemaleProducts(null)}
+                onClick={() => setSearchParams({})}
             />
             <label
                 className='rounded-s-lg bg-slate-950 hover:bg-slate-800 p-2 text-sm text-slate-100 cursor-pointer'
@@ -19,7 +19,7 @@ const ProductFilters = ({ setFemaleProducts }) => {
                 type='radio'
                 name='filter-selection'
                 className='hidden'
-                onClick={() => setFemaleProducts(false)}
+                onClick={() => setSearchParams({ filterby: 'masc' })}
             />
             <label
                 className='bg-slate-950 hover:bg-slate-800 p-2 text-sm text-slate-100 cursor-pointer'
@@ -32,7 +32,7 @@ const ProductFilters = ({ setFemaleProducts }) => {
                 type='radio'
                 name='filter-selection'
                 className='hidden'
-                onClick={() => setFemaleProducts(true)}
+                onClick={() => setSearchParams({ filterby: 'fem' })}
             />
             <label
                 className='rounded-r-lg bg-slate-950 hover:bg-slate-800 p-2 text-sm text-slate-100 cursor-pointer'
