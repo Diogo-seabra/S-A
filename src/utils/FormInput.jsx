@@ -7,7 +7,7 @@ export default function FormInput({
     className = '',
 }) {
     return (
-        <div className={''}>
+        <div className={className}>
             <label
                 htmlFor={id}
                 className='block mb-2 text-sm font-medium text-gray-900'
