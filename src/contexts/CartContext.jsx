@@ -37,9 +37,13 @@ const CartContextProvider = ({ children }) => {
     };
 
     const removeFromCart = (productId) => {
-        const cartItemsCopy = { ...cartItems };
-        delete cartItemsCopy[productId];
-        setCartItems(cartItemsCopy);
+        if (productId) {
+            const cartItemsCopy = { ...cartItems };
+            delete cartItemsCopy[productId];
+            setCartItems(cartItemsCopy);
+        } else {
+            setCartItems({});
+        }
     };
 
     const toggleIsCartOpen = () => {

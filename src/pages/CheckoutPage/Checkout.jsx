@@ -1,12 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import CartProducts from '../../components/Cart/CartProducts';
 import TotalPriceCell from '../../components/Cart/TotalPriceCell';
 import FormInput from '../../utils/FormInput';
+import { useCartContext } from '../../contexts/CartContext';
+import { Link } from 'react-router-dom';
 
 const Checkout = () => {
     const formRef = useRef(null);
     const [isFormValid, setIsFormValid] = useState(false);
+    const { toggleIsCartOpen, removeFromCart } = useCartContext();
+
+    toggleIsCartOpen();
 
     useEffect(() => {
         const handleInput = () => {
@@ -27,8 +31,11 @@ const Checkout = () => {
             <p className='text-center text-2xl font-bold text-slate-950  pt-8'>
                 Finalizar Compra
             </p>
-            <form  ref={formRef} className='bg-slate-950 text-white grid grid-rows-[max-content_1fr_1fr_1fr_1fr_1fr] grid-cols-3 grid-flow-col gap-4 h-[80%] mt-6 px-8 pb-12'>
-                <p className='text-center text-sm font-bold'>Seus dados</p>
+            <form
+                ref={formRef}
+                className='bg-slate-950 text-white text-xl grid grid-rows-[max-content_1fr_1fr_1fr_1fr_1fr] grid-cols-3 grid-flow-col gap-4 h-[80%] mt-6 px-8 pb-12'
+            >
+                <p className='text-center font-bold'>Seus dados</p>
                 <FormInput
                     fieldType='text'
                     fieldName='Nome'
@@ -58,7 +65,7 @@ const Checkout = () => {
                     required
                 />
 
-                <p className='text-center text-sm font-bold row-start-1'>
+                <p className='text-center font-bold row-start-1'>
                     Pagamento e Entrega
                 </p>
                 <FormInput
@@ -118,7 +125,7 @@ const Checkout = () => {
                         className='w-1/2'
                     />
                 </div>
-                <p className='text-center text-sm font-bold row-start-1'>
+                <p className='text-center font-bold row-start-1'>
                     Seus Produtos
                 </p>
                 <section className='row-span-4 p-2 bg-neutral-100 rounded-md overflow-auto scrollbar-hide'>
@@ -128,7 +135,12 @@ const Checkout = () => {
                     <TotalPriceCell />
                     <Link
                         to='/'
-                        className='bg-slate-100 text-slate-950 rounded-md p-1 hover:bg-slate-900 hover:text-slate-100 text-center'
+                        onClick={() => removeFromCart()}
+                        className={`rounded-md p-1 text-center transition ${
+                            isFormValid
+                                ? 'bg-slate-100 text-slate-950 hover:bg-slate-900 hover:text-slate-100'
+                                : 'bg-slate-300 text-slate-500 pointer-events-none opacity-50'
+                        }`}
                     >
                         Finalizar Compra
                     </Link>
