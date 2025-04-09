@@ -3,7 +3,7 @@ import Home from './pages/Homepage/Home';
 import Checkout from './pages/CheckoutPage/Checkout';
 import PurchaseHistory from './pages/PurchaseHistoryPage/PurchaseHistory';
 import { Routes, Route } from 'react-router-dom';
-import CartContextProvider, { CartContext } from './contexts/CartContext';
+import CartContextProvider from './contexts/CartContext';
 
 function App() {
     return (
