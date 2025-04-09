@@ -1,17 +1,34 @@
+import { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CartProducts from '../../components/Cart/CartProducts';
 import TotalPriceCell from '../../components/Cart/TotalPriceCell';
 import FormInput from '../../utils/FormInput';
 
 const Checkout = () => {
+    const formRef = useRef(null);
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    useEffect(() => {
+        const handleInput = () => {
+            if (formRef.current) {
+                setIsFormValid(formRef.current.checkValidity());
+            }
+        };
+
+        const formEl = formRef.current;
+        if (formEl) {
+            formEl.addEventListener('input', handleInput);
+            return () => formEl.removeEventListener('input', handleInput);
+        }
+    }, []);
+
     return (
         <main className='bg-stone-200 h-[calc(100dvh-6rem)]'>
             <p className='text-center text-2xl font-bold text-slate-950  pt-8'>
                 Finalizar Compra
             </p>
-            <form className='grid grid-rows-[max-content_1fr_1fr_1fr_1fr_1fr] grid-cols-3 grid-flow-col gap-4 h-3/4 mt-6 px-8'>
-                <p className='text-center text-sm font-bold text-slate-950'>
-                    Seus dados
-                </p>
+            <form  ref={formRef} className='bg-slate-950 text-white grid grid-rows-[max-content_1fr_1fr_1fr_1fr_1fr] grid-cols-3 grid-flow-col gap-4 h-[80%] mt-6 px-8 pb-12'>
+                <p className='text-center text-sm font-bold'>Seus dados</p>
                 <FormInput
                     fieldType='text'
                     fieldName='Nome'
@@ -41,7 +58,7 @@ const Checkout = () => {
                     required
                 />
 
-                <p className='text-center text-sm font-bold text-slate-950 row-start-1'>
+                <p className='text-center text-sm font-bold row-start-1'>
                     Pagamento e Entrega
                 </p>
                 <FormInput
@@ -101,17 +118,20 @@ const Checkout = () => {
                         className='w-1/2'
                     />
                 </div>
-                <p className='text-center text-sm font-bold text-slate-950 row-start-1'>
+                <p className='text-center text-sm font-bold row-start-1'>
                     Seus Produtos
                 </p>
                 <section className='row-span-4 p-2 bg-neutral-100 rounded-md overflow-auto scrollbar-hide'>
-                    <CartProducts isHomePage={false}/>
+                    <CartProducts isHomePage={false} />
                 </section>
                 <section className='row-span-1 flex flex-col gap-2'>
                     <TotalPriceCell />
-                    <button className='bg-slate-950 text-slate-100 rounded-md p-1 hover:bg-slate-800 text-center'>
+                    <Link
+                        to='/'
+                        className='bg-slate-100 text-slate-950 rounded-md p-1 hover:bg-slate-900 hover:text-slate-100 text-center'
+                    >
                         Finalizar Compra
-                    </button>
+                    </Link>
                 </section>
             </form>
         </main>

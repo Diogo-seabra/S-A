@@ -10,7 +10,7 @@ export default function FormInput({
         <div className={className}>
             <label
                 htmlFor={id}
-                className='block mb-2 text-sm font-medium text-gray-900'
+                className='text-white block mb-2 text-sm font-medium'
             >
                 {fieldName}
             </label>

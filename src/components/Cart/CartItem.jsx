@@ -5,7 +5,7 @@ import { catalogIndexedById } from '../../utils/catalog';
 
 const CartItem = ({ id, amount }) => {
     const { addToCart, decreaseUnit, removeFromCart } = useCartContext();
-    const { brand, price, name, image } = catalogIndexedById[id];
+    const { price, name, image } = catalogIndexedById[id];
 
     return (
         <article className='flex bg-stone-100 p-3 border rounded-md relative'>

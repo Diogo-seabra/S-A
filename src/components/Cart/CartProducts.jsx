@@ -1,5 +1,6 @@
 import { useCartContext } from '../../contexts/CartContext';
 import CartItem from './CartItem';
+import SimpleCartItem from './SimpleCartItem';
 
 const CartProducts = ({ isHomePage = true }) => {
     const { cartItems } = useCartContext();
@@ -15,7 +16,11 @@ const CartProducts = ({ isHomePage = true }) => {
             } overflow-y-auto scrollbar-hide`}
         >
             {cartItemsArray.map((product) => {
-                return <CartItem {...product} key={`key_${product.id}`} />;
+                return isHomePage ? (
+                    <CartItem {...product} key={`key_${product.id}`} />
+                ) : (
+                    <SimpleCartItem {...product} key={`key_${product.id}`} />
+                );
             })}
         </section>
     );

@@ -1,4 +1,7 @@
-import { useCartContext, getAmountOfItemsInCart } from '../contexts/CartContext';
+import {
+    useCartContext,
+    getAmountOfItemsInCart,
+} from '../contexts/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
@@ -24,9 +27,7 @@ const UserButtons = () => {
                     </div>
                 )}
             </button>
-            <Link to='/history' className='px-2'>
-                <FontAwesomeIcon icon={faUser} className='text-2xl' />
-            </Link>
+            <FontAwesomeIcon icon={faUser} className='text-2xl px-3' />
         </div>
     );
 };
