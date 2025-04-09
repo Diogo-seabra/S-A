@@ -7,7 +7,7 @@ const ProductCard = ({ id, name, brand, image, feminine, price }) => {
 
     return (
         <>
-            <article className='relative card-produto group w-48 bg-stone-100 shadow-md shadow-slate-200 flex flex-col justify-between border border-gray-200 rounded-xl p-4 transition-all hover:scale-105'>
+            <article className='w-1/3 md:w-1/6 lg:w-1/8 relative card-produto group bg-stone-100 shadow-md shadow-slate-200 flex flex-col justify-between border border-gray-200 rounded-xl p-4 transition-all hover:scale-105'>
                 <img
                     className='group-hover:scale-105 rounded-lg transition duration-300 mb-4'
                     src={image}

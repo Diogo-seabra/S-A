@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 
 const ProductsContainer = ({ searchParams }) => {
     return (
-        <section className='container flex flex-wrap mx-auto p-10 justify-center gap-10'>
+        <section className='container flex flex-wrap mx-auto p-10 justify-center gap-10 md:flex-row'>
             {(searchParams.get('filterby') !== null
                 ? catalog.filter((p) => p.feminine === (searchParams.get('filterby') === 'fem'))
                 : catalog
