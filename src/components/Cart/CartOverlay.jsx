@@ -23,7 +23,7 @@ const CartOverlay = () => {
 
     return (
         <div
-            className={`z-50 h-screen w-screen fixed top-0 left-0  transition duration-600 ${
+            className={`z-50 h-dvh w-screen fixed top-0 left-0  transition duration-600 ${
                 isCartOpen ? 'pointer-events-auto' : 'pointer-events-none'
             }`}
         >
