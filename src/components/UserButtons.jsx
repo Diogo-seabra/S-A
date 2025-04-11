@@ -8,26 +8,25 @@ import { Link } from 'react-router-dom';
 
 const UserButtons = () => {
     const { toggleIsCartOpen, cartItems } = useCartContext();
-
     const amountOfItems = getAmountOfItemsInCart(cartItems);
 
     return (
-        <div className='absolute top-11 right-2'>
-            <button onClick={toggleIsCartOpen} className='px-3 relative'>
+        <div className='flex items-center gap-3 sm:gap-4'>
+            <button onClick={toggleIsCartOpen} className='relative'>
                 <FontAwesomeIcon
                     icon={faCartShopping}
-                    className='text-2xl cursor-pointer'
+                    className='text-xl sm:text-2xl cursor-pointer'
                 />
                 {!!amountOfItems && (
                     <div
                         id='cart-amount'
-                        className='absolute flex items-center justify-center w-6 h-6 text-sm leading-none font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-1'
+                        className='absolute flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 text-xs sm:text-sm font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2'
                     >
                         {amountOfItems}
                     </div>
                 )}
             </button>
-            <FontAwesomeIcon icon={faUser} className='text-2xl px-3' />
+            <FontAwesomeIcon icon={faUser} className='text-xl sm:text-2xl' />
         </div>
     );
 };

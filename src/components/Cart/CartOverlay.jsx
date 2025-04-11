@@ -36,7 +36,7 @@ const CartOverlay = () => {
             ></section>
             <section
                 id='inside-of-cart'
-                className={`absolute top-0 right-0 h-full bg-slate-950 min-w-96 w-1/4 border-l-4 border-slate-400 p-5 flex flex-col justify-between text-white transform transition-transform duration-500 ${
+                className={`absolute top-0 right-0 h-full bg-slate-950 w-full sm:w-3/4 md:w-2/4 lg:w-1/3 xl:w-1/4 min-w-[300px] border-l-4 border-slate-400 p-5 flex flex-col justify-between text-white transform transition-transform duration-500 ${
                     isCartOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}
             >
