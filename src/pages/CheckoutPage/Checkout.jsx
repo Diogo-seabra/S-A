@@ -33,105 +33,120 @@ const Checkout = () => {
             </p>
             <form
                 ref={formRef}
-                className='bg-slate-950 text-white text-xl grid grid-rows-[max-content_1fr_1fr_1fr_1fr_1fr] grid-cols-3 grid-flow-col gap-4 h-[80%] mt-6 px-8 pb-12'
+                className='bg-slate-950 text-white text-xl flex flex-col gap-6 md:grid md:grid-rows-[max-content_1fr_1fr_1fr_1fr_1fr] md:grid-cols-3 md:grid-flow-col md:gap-4 h-full min-h-[80vh] mt-6 px-4 md:px-8 pb-12 overflow-auto'
             >
-                <p className='text-center font-bold'>Seus dados</p>
-                <FormInput
-                    fieldType='text'
-                    fieldName='Nome'
-                    id='Nome'
-                    placeholder='Diogo'
-                    required
-                />
-                <FormInput
-                    fieldType='text'
-                    fieldName='Sobrenome'
-                    id='surname'
-                    placeholder='Seabra'
-                    required
-                />
-                <FormInput
-                    fieldType='email'
-                    fieldName='E-mail'
-                    id='email'
-                    placeholder='diogoseabra@email.com'
-                    required
-                />
-                <FormInput
-                    fieldType='text'
-                    fieldName='Telefone'
-                    id='phone'
-                    placeholder='(XX) 00000-0000'
-                    required
-                />
-
-                <p className='text-center font-bold row-start-1'>
-                    Pagamento e Entrega
-                </p>
-                <FormInput
-                    fieldType='text'
-                    fieldName='Número do Cartão'
-                    id='credit-card'
-                    placeholder='XXXX XXXX XXXX XXXX'
-                    required
-                />
-                <div className='flex justify-center gap-3'>
+                <div className='col-span-full grid grid-cols-1 md:grid-cols-1 gap-4'>
+                    <p className='text-center font-bold col-span-full'>
+                        Seus dados
+                    </p>
                     <FormInput
                         fieldType='text'
-                        fieldName='CVV'
-                        id='cvv'
-                        placeholder='123'
-                        className='w-1/2'
+                        fieldName='Nome'
+                        id='Nome'
+                        placeholder='Diogo'
                         required
                     />
                     <FormInput
                         fieldType='text'
-                        fieldName='Data de Vencimento'
-                        id='expiration-date'
-                        placeholder='01/70'
-                        className='w-1/2'
+                        fieldName='Sobrenome'
+                        id='surname'
+                        placeholder='Seabra'
+                        required
+                    />
+                    <FormInput
+                        fieldType='email'
+                        fieldName='E-mail'
+                        id='email'
+                        placeholder='diogoseabra@email.com'
+                        required
+                    />
+                    <FormInput
+                        fieldType='text'
+                        fieldName='Telefone'
+                        id='phone'
+                        placeholder='(XX) 00000-0000'
                         required
                     />
                 </div>
 
-                <FormInput
-                    fieldType='text'
-                    fieldName='CEP'
-                    id='postal-code'
-                    placeholder='00000-000'
-                    required
-                />
-                <FormInput
-                    fieldType='text'
-                    fieldName='Endereço'
-                    id='adress'
-                    placeholder='Avenida X'
-                    required
-                />
-                <div className='flex justify-center gap-3'>
+                <div className='border-t border-slate-700 col-span-full'></div>
+
+                {/* PAGAMENTO E ENTREGA */}
+
+                <div className='col-span-full grid grid-cols-1 md:grid-cols-1 gap-4'>
+                    <p className='text-center font-bold col-span-full'>
+                        Pagamento e Entrega
+                    </p>
                     <FormInput
                         fieldType='text'
-                        fieldName='Número'
-                        id='adress-number'
-                        placeholder='12'
-                        className='w-1/2'
+                        fieldName='Número do Cartão'
+                        id='credit-card'
+                        placeholder='XXXX XXXX XXXX XXXX'
+                        required
+                    />
+                    <div className='flex flex-col md:flex-row justify-center gap-3 col-span-full'>
+                        <FormInput
+                            fieldType='text'
+                            fieldName='CVV'
+                            id='cvv'
+                            placeholder='123'
+                            className='w-full md:w-1/2'
+                            required
+                        />
+                        <FormInput
+                            fieldType='text'
+                            fieldName='Data de Vencimento'
+                            id='expiration-date'
+                            placeholder='01/70'
+                            className='w-full md:w-1/2'
+                            required
+                        />
+                    </div>
+
+                    <FormInput
+                        fieldType='text'
+                        fieldName='CEP'
+                        id='postal-code'
+                        placeholder='00000-000'
                         required
                     />
                     <FormInput
                         fieldType='text'
-                        fieldName='Complemento (opcional)'
-                        id='apt-number'
-                        placeholder='103'
-                        className='w-1/2'
+                        fieldName='Endereço'
+                        id='adress'
+                        placeholder='Avenida X'
+                        required
                     />
+                    <div className='flex flex-col md:flex-row justify-center gap-3 col-span-full'>
+                        <FormInput
+                            fieldType='text'
+                            fieldName='Número'
+                            id='adress-number'
+                            placeholder='12'
+                            className='w-full md:w-1/2'
+                            required
+                        />
+                        <FormInput
+                            fieldType='text'
+                            fieldName='Complemento (opcional)'
+                            id='apt-number'
+                            placeholder='Ao lado da pizzaria X'
+                            className='w-full md:w-1/2'
+                        />
+                    </div>
                 </div>
-                <p className='text-center font-bold row-start-1'>
+
+                <div className='border-t border-slate-700 col-span-full'></div>
+
+                {/* SEUS PRODUTOS */}
+                <p className='text-center font-bold col-span-full'>
                     Seus Produtos
                 </p>
-                <section className='row-span-4 p-2 bg-neutral-100 rounded-md overflow-auto scrollbar-hide'>
+                <section className='p-2 bg-neutral-100 rounded-md overflow-auto scrollbar-hide col-span-full min-h-[200px]'>
                     <CartProducts isHomePage={false} />
                 </section>
-                <section className='row-span-1 flex flex-col gap-2'>
+
+                <section className='flex flex-col gap-2 col-span-full'>
                     <TotalPriceCell />
                     <Link
                         to='/'
