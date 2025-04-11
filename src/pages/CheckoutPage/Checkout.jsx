@@ -27,18 +27,16 @@ const Checkout = () => {
     }, []);
 
     return (
-        <main className='bg-stone-200 h-[calc(100dvh-6rem)]'>
-            <p className='text-center text-2xl font-bold text-slate-950  pt-8'>
+        <main className='bg-stone-200'>
+            <p className='text-center text-2xl font-bold text-slate-950 pt-8'>
                 Finalizar Compra
             </p>
             <form
                 ref={formRef}
-                className='bg-slate-950 text-white text-xl flex flex-col gap-6 md:grid md:grid-rows-[max-content_1fr_1fr_1fr_1fr_1fr] md:grid-cols-3 md:grid-flow-col md:gap-4 h-full min-h-[80vh] mt-6 px-4 md:px-8 pb-12 overflow-auto'
+                className='bg-slate-950 text-white text-xl grid gap-6 lg:grid-cols-3 mt-6 px-4 md:px-8 pb-12 overflow-auto lg:max-h-[71.2vh] lg:overflow-hidden'
             >
-                <div className='col-span-full grid grid-cols-1 md:grid-cols-1 gap-4'>
-                    <p className='text-center font-bold col-span-full'>
-                        Seus dados
-                    </p>
+                <div className='flex flex-col gap-4'>
+                    <p className='text-center font-bold'>Seus dados</p>
                     <FormInput
                         fieldType='text'
                         fieldName='Nome'
@@ -69,14 +67,10 @@ const Checkout = () => {
                     />
                 </div>
 
-                <div className='border-t border-slate-700 col-span-full'></div>
+                <div className='border-t border-slate-700 lg:hidden col-span-full' />
 
-                {/* PAGAMENTO E ENTREGA */}
-
-                <div className='col-span-full grid grid-cols-1 md:grid-cols-1 gap-4'>
-                    <p className='text-center font-bold col-span-full'>
-                        Pagamento e Entrega
-                    </p>
+                <div className='flex flex-col gap-4'>
+                    <p className='text-center font-bold'>Pagamento e Entrega</p>
                     <FormInput
                         fieldType='text'
                         fieldName='Número do Cartão'
@@ -84,7 +78,7 @@ const Checkout = () => {
                         placeholder='XXXX XXXX XXXX XXXX'
                         required
                     />
-                    <div className='flex flex-col md:flex-row justify-center gap-3 col-span-full'>
+                    <div className='flex flex-row justify-center gap-3'>
                         <FormInput
                             fieldType='text'
                             fieldName='CVV'
@@ -102,7 +96,6 @@ const Checkout = () => {
                             required
                         />
                     </div>
-
                     <FormInput
                         fieldType='text'
                         fieldName='CEP'
@@ -117,7 +110,7 @@ const Checkout = () => {
                         placeholder='Avenida X'
                         required
                     />
-                    <div className='flex flex-col md:flex-row justify-center gap-3 col-span-full'>
+                    <div className='flex flex-col md:flex-row justify-center gap-3'>
                         <FormInput
                             fieldType='text'
                             fieldName='Número'
@@ -136,17 +129,13 @@ const Checkout = () => {
                     </div>
                 </div>
 
-                <div className='border-t border-slate-700 col-span-full'></div>
+                <div className='border-t border-slate-700 lg:hidden col-span-full' />
 
-                {/* SEUS PRODUTOS */}
-                <p className='text-center font-bold col-span-full'>
-                    Seus Produtos
-                </p>
-                <section className='p-2 bg-neutral-100 rounded-md overflow-auto scrollbar-hide col-span-full min-h-[200px]'>
-                    <CartProducts isHomePage={false} />
-                </section>
-
-                <section className='flex flex-col gap-2 col-span-full'>
+                <div className='flex flex-col gap-4'>
+                    <p className='text-center font-bold'>Seus Produtos</p>
+                    <section className='p-2 bg-neutral-100 rounded-md overflow-auto scrollbar-hide min-h-[200px] max-h-[300px]'>
+                        <CartProducts isHomePage={false} />
+                    </section>
                     <TotalPriceCell />
                     <Link
                         to='/'
@@ -159,7 +148,7 @@ const Checkout = () => {
                     >
                         Finalizar Compra
                     </Link>
-                </section>
+                </div>
             </form>
         </main>
     );
