@@ -10,8 +10,6 @@ const Checkout = () => {
     const [isFormValid, setIsFormValid] = useState(false);
     const { toggleIsCartOpen, removeFromCart } = useCartContext();
 
-    toggleIsCartOpen();
-
     useEffect(() => {
         const handleInput = () => {
             if (formRef.current) {
@@ -139,7 +137,10 @@ const Checkout = () => {
                     <TotalPriceCell />
                     <Link
                         to='/'
-                        onClick={() => removeFromCart()}
+                        onClick={() => {
+                            removeFromCart();
+                            toggleIsCartOpen();
+                        }}
                         className={`rounded-md p-1 text-center transition ${
                             isFormValid
                                 ? 'bg-slate-100 text-slate-950 hover:bg-slate-900 hover:text-slate-100'
