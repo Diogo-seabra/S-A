@@ -133,7 +133,13 @@ Você pode abrir uma issue ou enviar um pull request com melhorias, sugestões o
 
 ---
 
-Este projeto foi feito com foco em aprendizado, mas está pronto para servir como base para aplicações reais.  
-Sinta-se à vontade para explorar, clonar e adaptar!
+## 📌 Observações Importantes
+
+Este projeto foi desenvolvido **exclusivamente para fins acadêmicos** e não possui qualquer intenção comercial.  
+A marca e o logotipo **S&A** foram inspirados como uma **paródia não-oficial da loja C&A**, trocando o "C" pelo "S" de Seabra (sobrenome do desenvolvedor).  
+Do mesmo modo que o projeto Seabrix foi inspirado na Netflix, esta aplicação foi idealizada como uma forma de aprendizado, experimentação de tecnologias e composição de portfólio.
+
+Todo o conteúdo é de uso educacional.
+
 
 
