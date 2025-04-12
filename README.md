@@ -1,6 +1,6 @@
 # 🛍️ Projeto S&A Store - Loja Virtual em React
 
-Este é um projeto acadêmico de uma **loja virtual funcional**, desenvolvido com **React**, **Tailwind CSS** e **Vite**. Ele simula uma plataforma de compras com carrinho, filtros por categoria, checkout e uma **interface totalmente responsiva** — adaptada para desktop e dispositivos móveis.
+Este é um projeto acadêmico de uma **interface funcional de loja virtual**, desenvolvido com **React**, **Tailwind CSS** e **Vite**. Ele simula uma plataforma de compras com carrinho, filtros por categoria, checkout e uma **interface totalmente responsiva** — adaptada para desktop e dispositivos móveis.
 
 ## 🌐 Acesse o projeto online
 
